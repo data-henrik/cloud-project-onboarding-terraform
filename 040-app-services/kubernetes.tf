@@ -1,4 +1,4 @@
-# # Provision Kubernetes cluster in VPC
+# Provision Kubernetes cluster in VPC
 resource "ibm_container_vpc_cluster" "cluster" {
 
   name              = "${var.basename}-cluster"
