@@ -1,9 +1,9 @@
 # Terraform files for onboarding a cloud development project
 
 The files in this repository are samples for the following IBM Cloud blog post:
-[Blueprinting the Onboarding of Cloud Projects Using Terraform](https://www.ibm.com/cloud/blog/blueprinting-the-onboarding-of-cloud-projects-using-terraform).
+- [Blueprinting the Onboarding of Cloud Projects Using Terraform](https://www.ibm.com/cloud/blog/blueprinting-the-onboarding-of-cloud-projects-using-terraform).
 
-They only provide a rough skeleton to demonstrate topics discussed in the blog. Only some of the files are provided which are required to deploy the full project. The IBM Cloud solution tutorial ["Apply end to end security to a cloud application"](https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-cloud-e2e-security) is used as sample project or proof-point for the onboarding process.
+They provide a rough skeleton to demonstrate topics discussed in that blog post. Thus, only some of the files are provided which are required to deploy the full project. The IBM Cloud solution tutorial ["Apply end to end security to a cloud application"](https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-cloud-e2e-security) is used as sample project or proof-point for the onboarding process.
 
 Read ["Getting started with Terraform"](https://cloud.ibm.com/docs/terraform?topic=terraform-getting-started) to learn how to set up your environment for using Terraform with IBM Cloud.
 
