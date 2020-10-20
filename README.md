@@ -11,7 +11,7 @@ Read ["Getting started with Terraform"](https://cloud.ibm.com/docs/terraform?top
 Terraform files are organized in directories and applied folder by folder, in ascending order.
 
 - [000-base](000-base): Corporate base layer for all projects
-- [010-account-admin](010-account-admin): Project-specific setup by the account owner or super admin
+- [010-account-admin](010-account-admin): Project-specific setup by the account owner or super admin ("Cloud Organization Admins")
 - [020-security-admin](020-security-admin):
 - ...
 - [040-app-services](040-app-services):
@@ -21,7 +21,7 @@ Terraform files are organized in directories and applied folder by folder, in as
 ### Deployment flow
 It is assumed that the account is organized similar to this:
 
-- **Cloud Organization Administrator(s)**: account owner or administrator who sets up users, service IDs, and access groups (AG) as well as account-level resources.
+- **Cloud Organization Administrator(s)**: account owner or super administrator who sets up users, service IDs, and access groups (AG) as well as account-level resources.
 - **Security Administrators**: Access Group to perform security management and audits
 - **Network Administrators**: Access Group for managing network resources, such as Virtual Private Clouds (VPC)
 - **Application Services**: Access Group to set up application-related resources including the Kubernetes cluster.
