@@ -22,11 +22,20 @@ resource "ibm_iam_access_group_policy" "cloud-organization-admins-iam_admin" {
   roles = [ "Administrator", "Manager" ]
 }
 
-# Account Management > Support Center: Editor to all groups
+# Account Management > Support Center: Editor
 resource "ibm_iam_access_group_policy" "cloud-organization-admins-support" {
   access_group_id = ibm_iam_access_group.cloud-organization-admins.id
   roles = [ "Editor" ]
   resources {
     service = "support"
+  }
+}
+
+# Account Management > Security & Compliance Center: Administrator, ServiceEditor
+resource "ibm_iam_access_group_policy" "cloud-organization-admins-scc" {
+  access_group_id = ibm_iam_access_group.cloud-organization-admins.id
+  roles = [ "Administrator", "ServiceEditor" ]
+  resources {
+    service = "compliance"
   }
 }

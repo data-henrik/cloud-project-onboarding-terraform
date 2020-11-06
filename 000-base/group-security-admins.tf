@@ -79,7 +79,7 @@ resource "ibm_iam_access_group_policy" "cloud-security-admins-viewall-rg" {
   }
 }
 
-# Account Management > Support Center: Editor to all groups
+# Account Management > Support Center: Editor
 resource "ibm_iam_access_group_policy" "cloud-security-admins-support" {
   access_group_id = ibm_iam_access_group.cloud-security-admins.id
   roles = [ "Editor" ]
@@ -87,6 +87,16 @@ resource "ibm_iam_access_group_policy" "cloud-security-admins-support" {
     service = "support"
   }
 }
+
+# Account Management > Security & Compliance Center: Administrator, ServiceEditor
+resource "ibm_iam_access_group_policy" "cloud-security-admins-scc" {
+  access_group_id = ibm_iam_access_group.cloud-security-admins.id
+  roles = [ "Administrator", "ServiceEditor" ]
+  resources {
+    service = "compliance"
+  }
+}
+
 
 # Account Manager > All account management services: Viewer
 # To track all user-specific authorizations
