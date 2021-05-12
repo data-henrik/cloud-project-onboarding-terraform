@@ -23,16 +23,3 @@ variable "basename" {
 variable "user_org_admin" {
   default = "org-admin1@example.com"
 }
-
-variable "user_network_admin" {
-  default = "network-admin1@example.com"
-}
-
-variable "user_devops" {
-}
-
-variable "user_security_admin" {
-}
-
-variable "user_dev" {
-}

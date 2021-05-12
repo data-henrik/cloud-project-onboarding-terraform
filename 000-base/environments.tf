@@ -8,7 +8,7 @@ resource "ibm_resource_group" "development" {
   tags = []
 }
 
-resource "ibm_resource_group" "development" {
+resource "ibm_resource_group" "test" {
   name = "${var.basename}-test"
   tags = []
 }
