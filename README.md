@@ -3,6 +3,10 @@
 The files in this repository are samples for the following IBM Cloud blog posts:
 - [Blueprinting the Onboarding of Cloud Projects Using Terraform](https://www.ibm.com/cloud/blog/blueprinting-the-onboarding-of-cloud-projects-using-terraform).
 - [Onboarding Cloud Projects: Security and Resource Considerations](https://www.ibm.com/cloud/blog/onboarding-cloud-projects-security-and-resource-considerations)
+- [Terraform: Best practices for the cloud onboarding of enterprise projects](https://blog.4loeser.net/2020/10/onboarding-cloud-projects-terraform.html)
+- [IBM Cloud: Considerations for role and resource setup ](https://blog.4loeser.net/2020/10/cloud-considerations-security-resources-setup.html)
+- [Some fun digging into IBM Cloud access policies](https://blog.4loeser.net/2020/09/fun-ibm-cloud-security-python-access.html)
+- [Updated Tutorial on End-to-End Cloud Security](https://www.ibm.com/cloud/blog/updated-tutorial-on-end-to-end-cloud-security)
 
 The files provide a rough skeleton to demonstrate topics discussed in that blog post. Thus, only some of the files are provided which are required to deploy the full project. The IBM Cloud solution tutorial ["Apply end to end security to a cloud application"](https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-cloud-e2e-security) is used as sample project or proof-point for the onboarding process.
 
