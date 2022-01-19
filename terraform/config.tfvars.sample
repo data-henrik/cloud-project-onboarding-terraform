@@ -1,4 +1,5 @@
+# copy this over to config.tfvars and replace with actual values
 ibmcloud_api_key = "your-API-key"
 region = "us-south"
 idp-realm-id= "replace-later"
-projname="cloudsec-workshop"
+projname="cloudsec"

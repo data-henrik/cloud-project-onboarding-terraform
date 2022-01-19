@@ -23,6 +23,18 @@ resource "ibm_appid_audit_status" "status" {
   is_active = true
 }
 
+# configure the cloud directory
+resource "ibm_appid_idp_cloud_directory" "clouddirectory" {
+  tenant_id = ibm_resource_instance.WS_AppID.guid
+  is_active = true
+  identity_field = "email"
+  self_service_enabled = false
+  signup_enabled = false
+  welcome_enabled = false
+  reset_password_enabled = true
+  reset_password_notification_enabled = true
+}
+
 # email templates
 resource "ibm_appid_cloud_directory_template" "tpl_userverification" {
   tenant_id = ibm_resource_instance.WS_AppID.guid
@@ -40,12 +52,12 @@ resource "ibm_appid_cloud_directory_template" "tpl_mfa" {
 }
 
 # turn off Facebook and Google
-resource "ibm_appid_idp_facebook" "fb" {
+resource "ibm_appid_idp_facebook" "facebook" {
   tenant_id = ibm_resource_instance.WS_AppID.guid
   is_active = false
 }
 
-resource "ibm_appid_idp_google" "gg" {
+resource "ibm_appid_idp_google" "google" {
   tenant_id = ibm_resource_instance.WS_AppID.guid
   is_active = false
 }
