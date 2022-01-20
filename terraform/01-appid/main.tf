@@ -29,7 +29,7 @@ resource "ibm_appid_idp_cloud_directory" "clouddirectory" {
   is_active = true
   identity_field = "email"
   identity_confirm_access_mode = "OFF"
-  self_service_enabled = false
+  self_service_enabled = true
   signup_enabled = false
   welcome_enabled = false
   reset_password_enabled = true
