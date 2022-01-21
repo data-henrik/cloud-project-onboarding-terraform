@@ -1,5 +1,12 @@
+# Set up one resource group for the workshop administration. It includes
+# resource like the App ID instance.
 #
-#
+# Set up another resource group 
+
+# define resource group for workshop-related administrative resources
+resource "ibm_resource_group" "workshop_admin_rg" {
+  name = "${var.projname}-workshop-admin"
+}
 
 # define resource group for workshop
 resource "ibm_resource_group" "workshop_rg" {
@@ -8,12 +15,13 @@ resource "ibm_resource_group" "workshop_rg" {
 
 
 # App ID instance for workshop participants
+# Create it in the admin resource group
 resource "ibm_resource_instance" "WS_AppID" {
   name = "${var.projname}-WS-AppID"
   service           = "appid"
   plan              = "graduated-tier"
   location          = var.region
-  resource_group_id = ibm_resource_group.workshop_rg.id
+  resource_group_id = ibm_resource_group.workshop_admin_rg.id
   service_endpoints = "public-and-private"
 }
 

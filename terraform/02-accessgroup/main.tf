@@ -12,19 +12,17 @@ resource "ibm_iam_access_group" "sample_ag" {
 }
 
 
-# view all IAM-enabled services in the project resource group in region "eu-de"
+# view all IAM-enabled services in the resource group for the workshop
 resource "ibm_iam_access_group_policy" "sample_ag-policy-rg-viewer" {
   access_group_id = ibm_iam_access_group.sample_ag.id
-  roles           = ["Viewer"]
+  roles           = ["Viewer", "Reader"]
 
   resources {
-    resource_type = "resource-group"
     resource_group_id = data.ibm_resource_group.workshop_rg.id
-    region = "eu-de"
   }
 }
 
-
+# add users based on IdP who are students
 resource "ibm_iam_access_group_dynamic_rule" "sample_ag-rule-students" {
   name              = "${var.projname}-student-rule"
   access_group_id   = ibm_iam_access_group.sample_ag.id
