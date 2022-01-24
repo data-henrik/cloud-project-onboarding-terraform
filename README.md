@@ -7,13 +7,16 @@ Short-lived projects like hackathons or workshops often have the following chara
 
 Additionally, such projects often are repeated with similar setup, but other participants. So, how do you onboard them efficiently?
 
-This repository holds sample Terraform code to
+### Terraform scripts for App ID and IAM
+This repository holds sample [Terraform code](terraform) to
 - provision an IBM App ID instance with adequate configuration of security settings and basic customization of the included Cloud Directory,
 - create an IAM access group with a sample policy for resource access and a dynamic rule to include App ID users,
 - create an IAM trusted profile with similar properties as the access group.
 
 The Terraform code does not use any common backend storage, so that the three parts can be used independently.
 
+### Python script to create users in App ID
+To create a batch of users in the App ID instance, we can utilize the App ID management APIs. The provided [Python script](user_upload/addUsers.py) reads a CSV file with user data and adds them to the App ID Cloud Directory. Users can then reset their password and change it to their own before logging into IBM Cloud.
 
 # Files
 
@@ -23,9 +26,11 @@ The Terraform code does not use any common backend storage, so that the three pa
 | `terraform/01-appid`           | Deploy an App ID instance to a new resource group |
 | `terraform/02-accessgroup`     | Create an Access Group with a sample policy and a dynamic rule. The dynamic rule refers to an identity provider (IdP) based on the App ID instance. |
 | `terraform/03-trustedprofile`  | Create a Trusted Profile with a sample policy.|
+| `user_upload`                  | Python script to easily add a batch of users to App ID and its Cloud Direcory |
 
 # Usage
-To deploy the objects defined in the code, few steps are needed:
+### Terraform
+To deploy the objects defined in the Terraform code, few steps are needed:
 
 1. Copy over [config.tfvars.sample](terraform/config.tfvars.sample) to a file **config.tfvars**.
 2. Edit the values for the variables in **config.tfvars**. This is mainly an IBM Cloud API key and the deployment region.
@@ -51,10 +56,26 @@ To deploy the objects defined in the code, few steps are needed:
 
 Note that you could change the **App ID instance** assigned to the **Identity Provider** (see step 4.), keeping the **Realm ID**. In other words, the Realm ID is a property of the IdP, not the App ID instance.
 
-Once done with deploying App ID and access groups and / or a trusted profiles, add users to App ID's Cloud Directory. You can add them either in the service console (browser) or by API. Make sure to define **custom attributes** for each user, matching what is defined in the dynamic rules (access group) or claim rules (trusted profile).
+Once done with deploying App ID and access groups and / or a trusted profiles, add users to App ID's Cloud Directory. You can add them either in the service console (browser) or by API. Make sure to define **custom attributes** for each user, matching what is defined in the dynamic rules (access group) or claim rules (trusted profile). See the next section for how to use the provided Python script which is based on the API.
 ![App ID custom attributes for a user](images/Custom_Attributes.png)
 
+### Add users with Python script
+A small Python script to add several users to App ID at once is provided in the directory [user_upload](user_upload). To use it,
+1. Copy over [.env.sample](user_upload/.env.sample) to **.env** and set the variables appropriately. Or define the variables in your environment.
+2. Adapt **users.csv** to the list of your users you want to create. The given name, family name, email address, and custom attributes make up a single user record.
+3. Invoke the script [addUsers.py](user_upload/addUsers.py), e.g.:
+   ```
+   python3 addUsers.py
+   ```
 
+   or to use **my_users.csv** as input file:
+   ```
+   USER_FILE=my_users.csv python3 addUsers.py
+   ```
+The script prints information about each added user.
+
+
+### User login
 To log in to IBM Cloud utilizing App ID as identity provider, the IdP URI based on the following scheme needs to be used:
 `https://cloud.ibm.com/authorize/account-id/realm-id`
 

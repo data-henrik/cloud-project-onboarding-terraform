@@ -1,0 +1,4 @@
+given name,family name,email,'string with JSON for custom attributes'
+John,Doe,john@example.com,'{"workshop_roles":["student"]}'
+Max,Mustermann,max@example.com,'{"workshop_roles":["admin","student"]}'
+Jane,Doe,jane@example.com,'{"workshop_roles":["student"]}'
