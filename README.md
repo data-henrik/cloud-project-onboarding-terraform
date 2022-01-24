@@ -72,7 +72,9 @@ A small Python script to add several users to App ID at once is provided in the 
    ```
    USER_FILE=my_users.csv python3 addUsers.py
    ```
-The script prints information about each added user.
+The script prints information about each added user. You can also verify in the App ID Cloud Directory that the users have been added:
+
+![App ID Cloud Directory showing the sample users](images/AppID_CD_users.png)
 
 
 ### User login

@@ -3,3 +3,6 @@
 .terraform
 *.tfstate*
 *.lock.hcl
+
+# .env
+.env
