@@ -86,3 +86,13 @@ To log in to IBM Cloud utilizing App ID as identity provider, the IdP URI based 
 
 The App ID login form should appear. If required, users can reset their (randomly assigned initial) password.
 ![App ID login form](images/AppID_Login.png)
+
+### Cleanup
+To offboard users and to clean up resources, perform the following actions:
+- To remove individual or all users, go to the App ID dashboard and its Cloud Directory user management. There, one, many or all users, then delete them. Thereby, they also lose access to the associated IBM Cloud. Additionally, in the IBM Cloud, go to the [Access(IAM) users section](https://cloud.ibm.com/iam/users) and remove users from the account. You can perform the latter via CLI, too.
+- To delete the deployed IAM access group, trusted profile, or App ID instance, switch to the related subdirectory and run the following command:
+  ```
+  terraform destroy -var-file=../config.tfvars
+  ```
+
+
