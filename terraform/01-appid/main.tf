@@ -71,6 +71,11 @@ resource "ibm_appid_idp_google" "google" {
   is_active = false
 }
 
+# enable MFA, by default it is email
+resource "ibm_appid_mfa" "mfa_support" {
+  tenant_id = ibm_resource_instance.WS_AppID.guid
+  is_active = true
+}
 
 # map from additional attributes to token claims
 resource "ibm_appid_token_config" "tokenconfig" {
@@ -84,3 +89,14 @@ resource "ibm_appid_token_config" "tokenconfig" {
   }
 }
 
+output "APPID_TENANT_ID" {
+  value = ibm_resource_instance.WS_AppID.guid
+}
+
+output "APPID_REGION" {
+  value = var.region
+}
+
+output "IC_API_KEY" {
+  value = var.ibmcloud_api_key
+}

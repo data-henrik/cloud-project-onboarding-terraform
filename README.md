@@ -48,6 +48,9 @@ To deploy the objects defined in the Terraform code, few steps are needed:
    ```
    terraform apply -var-file=../config.tfvars
    ```
+
+   At the end of a successful "apply", the script prints the App ID tenant ID, the region and the IBM API key. The three are required to configure the Python script later on.
+
 4. Go to the [IBM Cloud IAM settings for Identity Providers](https://cloud.ibm.com/iam/identity-providers) and create a new IdP (Identity Provider) based on the newly created App ID instance.
    ![Create an Identity Provider](images/Create_IdP.png)
 
@@ -61,7 +64,7 @@ Once done with deploying App ID and access groups and / or a trusted profiles, a
 
 ### Add users with Python script
 A small Python script to add several users to App ID at once is provided in the directory [user_upload](user_upload). To use it,
-1. Copy over [.env.sample](user_upload/.env.sample) to **.env** and set the variables appropriately. Or define the variables in your environment.
+1. Copy over [.env.sample](user_upload/.env.sample) to **.env** and set the variables appropriately. Or define the variables in your environment. You can use the values printed by the Terraform script when deploying App ID (see step 3 above).
 2. Adapt **users.csv** to the list of your users you want to create. The given name, family name, email address, and custom attributes make up a single user record.
 3. Invoke the script [addUsers.py](user_upload/addUsers.py), e.g.:
    ```

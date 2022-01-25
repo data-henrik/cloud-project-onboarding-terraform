@@ -91,7 +91,7 @@ def printUsage():
     print("Usage: python3 addUsers.py")
     print()
     print("Required environment variables:")
-    print("  APPID_ACCOUNT_ID:   The App ID tenant ID. See the service credentials.")
+    print("  APPID_TENANT_ID:   The App ID tenant ID. See the service credentials.")
     print("  APPID_REGION:       The region of the App ID instance.")
     print("  IC_API_KEY:         IBM Cloud IAM API key to use.")
     print("  USER_FILE:          The csv file with user data. Default is 'users.csv'.")
@@ -102,12 +102,12 @@ def printUsage():
 
 if __name__ == "__main__":
     # Check for variables and retrieve their values
-    if 'APPID_ACCOUNT_ID' not in os.environ or os.environ['APPID_ACCOUNT_ID']=="":
-        print("Need APPID_ACCOUNT_ID set - App ID tenant ID")
+    if 'APPID_TENANT_ID' not in os.environ or os.environ['APPID_TENANT_ID']=="":
+        print("Need APPID_TENANT_ID set - App ID tenant ID")
         printUsage()
         exit()
     else:
-        appid_account_id = os.environ['APPID_ACCOUNT_ID']
+        appid_account_id = os.environ['APPID_TENANT_ID']
 
     if 'APPID_REGION' not in os.environ or os.environ['APPID_REGION']=="":
         print("Need APPID_REGION set - region of App ID instance")
