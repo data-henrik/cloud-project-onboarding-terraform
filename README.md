@@ -7,6 +7,10 @@ Short-lived projects like hackathons or workshops often have the following chara
 
 Additionally, such projects often are repeated with similar setup, but other participants. So, how do you onboard them efficiently?
 
+Read the related blog posts:
+- [Secure Onboarding for Your Workshops and Hackathons](https://www.ibm.com/cloud/blog/secure-onboarding-for-your-workshops-and-hackathons)
+- [Bulk Creation of Users in IBM Cloud App ID](https://www.ibm.com/cloud/blog/bulk-creation-of-users-in-ibm-cloud-app-id)
+
 ### Terraform scripts for App ID and IAM
 This repository holds sample [Terraform code](terraform) to
 - provision an IBM App ID instance with adequate configuration of security settings and basic customization of the included Cloud Directory,
