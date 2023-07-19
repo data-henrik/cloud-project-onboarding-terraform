@@ -20,7 +20,21 @@ resource "ibm_iam_access_group_policy" "sample_ag-policy-rg-viewer" {
   resources {
     resource_group_id = data.ibm_resource_group.workshop_rg.id
   }
-}
+  # optional time-based restrictions
+/*   rule_conditions {
+    key = "{{environment.attributes.current_date_time}}"
+    operator = "dateTimeGreaterThanOrEquals"
+    value = ["2023-07-19T09:00:00+01:00"]
+  }
+  rule_conditions {
+    key = "{{environment.attributes.current_date_time}}"
+    operator = "dateTimeLessThanOrEquals"
+    value = ["2023-07-26T09:00:00+01:00"]
+  }
+  rule_operator = "and"
+  pattern = "time-based-conditions:once"
+ */
+ }
 
 # add users based on IdP who are students
 resource "ibm_iam_access_group_dynamic_rule" "sample_ag-rule-students" {

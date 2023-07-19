@@ -14,10 +14,12 @@ Read the related blog posts:
 ### Terraform scripts for App ID and IAM
 This repository holds sample [Terraform code](terraform) to
 - provision an IBM App ID instance with adequate configuration of security settings and basic customization of the included Cloud Directory,
-- create an IAM access group with a sample policy for resource access and a dynamic rule to include App ID users,
+- create an IAM access group with a sample policy for resource access and a dynamic rule to include App ID users,   
 - create an IAM trusted profile with similar properties as the access group.
 
 The Terraform code does not use any common backend storage, so that the three parts can be used independently.
+
+**Updated**: The sample policy for the access group has an inactive code block showing how to implement time-based restrictions. Uncomment the block and adjust the dates, times, and timezone information.
 
 ### Python script to create users in App ID
 To create a batch of users in the App ID instance, we can utilize the App ID management APIs. The provided [Python script](user_upload/addUsers.py) reads a CSV file with user data and adds them to the App ID Cloud Directory. Users can then reset their password and change it to their own before logging into IBM Cloud.
@@ -30,7 +32,7 @@ To create a batch of users in the App ID instance, we can utilize the App ID man
 | `terraform/01-appid`           | Deploy an App ID instance to a new resource group |
 | `terraform/02-accessgroup`     | Create an Access Group with a sample policy and a dynamic rule. The dynamic rule refers to an identity provider (IdP) based on the App ID instance. |
 | `terraform/03-trustedprofile`  | Create a Trusted Profile with a sample policy.|
-| `user_upload`                  | Python script to easily add a batch of users to App ID and its Cloud Direcory |
+| `user_upload`                  | Python script to easily add a batch of users to App ID and its Cloud Directory |
 
 # Usage
 ### Terraform
