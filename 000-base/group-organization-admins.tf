@@ -31,10 +31,10 @@ resource "ibm_iam_access_group_policy" "cloud-organization-admins-support" {
   }
 }
 
-# Account Management > Security & Compliance Center: Administrator, ServiceEditor
+# Account Management > Security & Compliance Center: Administrator
 resource "ibm_iam_access_group_policy" "cloud-organization-admins-scc" {
   access_group_id = ibm_iam_access_group.cloud-organization-admins.id
-  roles = [ "Administrator", "ServiceEditor" ]
+  roles = [ "Administrator"]
   resources {
     service = "compliance"
   }
